@@ -16,9 +16,9 @@ app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.INFO)
 
 # store env variable value into app's config
-app.config.uppdate(VERIFY_TOKEN=os.getenv("VERIFY_TOKEN", None),
-                   PAGE_ACCESS_TOKEN=os.getenv("PAGE_ACCESS_TOKEN", None),
-                   FACEBOOK_MESSAGING_ENDPOINT="https://graph.facebook.com/v2.6/me/messages")
+app.config.update(VERIFY_TOKEN=os.getenv("VERIFY_TOKEN", None),
+                  PAGE_ACCESS_TOKEN=os.getenv("PAGE_ACCESS_TOKEN", None),
+                  FACEBOOK_MESSAGING_ENDPOINT="https://graph.facebook.com/v2.6/me/messages")
 
 
 @app.route('/', methods=['GET'])
