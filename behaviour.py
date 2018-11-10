@@ -19,14 +19,14 @@ REGEXES = [re.compile(r'([a-z]+)\sprice\s\vs\s([a-z]+).*'),
 
 FULL_STRING_REGEXS = [
     re.compile(r'^([a-z]+)$'),
-    re.complie(r'^([a-z]+)\sprice$'),
-    re.complie(r'^price of ([a-z]+)$'),
-    re.complie(r'([a-z]+)/([a-z]+)$'),
-    re.complie(r'([a-z]+)-([a-z]+)$'),
-    re.complie(r'([a-z]+)\sin\s([a-z]+)$'),
-    re.complie(r'([a-z]+)\svs\s([a-z]+)$'),
-    re.complie(r'([a-z]+)\sversus\s([a-z]+)$'),
-    re.complie(r'([a-z]+)\sagainst\s([a-z]+)$'),
+    re.compile(r'^([a-z]+)\sprice$'),
+    re.compile(r'^price of ([a-z]+)$'),
+    re.compile(r'([a-z]+)/([a-z]+)$'),
+    re.compile(r'([a-z]+)-([a-z]+)$'),
+    re.compile(r'([a-z]+)\sin\s([a-z]+)$'),
+    re.compile(r'([a-z]+)\svs\s([a-z]+)$'),
+    re.compile(r'([a-z]+)\sversus\s([a-z]+)$'),
+    re.compile(r'([a-z]+)\sagainst\s([a-z]+)$'),
     ]
 
 KNOWN_CONVERSION_CURRENCIES = [
