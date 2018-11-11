@@ -23,10 +23,10 @@ app.config.update(VERIFY_TOKEN=os.getenv("VERIFY_TOKEN", None),
 
 @app.route('/', methods=['GET'])
 def webhook_verification():
-    if (request.args.get('hub.verify_token', '') == VERIFY_TOKEN):
+    if (request.args.get('hub.verify_token', '') == app.config['VERIFY_TOKEN']):
         print("Verified")
-        return request.args.get('hub.challenge', '')
-    elif (request.args.get('hub.verify_token', '') != VERIFY_TOKEN):
+        return request.args.get('hub.challenge', ''), 200
+    elif (request.args.get('hub.verify_token', '') != app.config['VERIFY_TOKEN']):
         print("Wrong token")
         return "Error, wrong validation token"
     # if request.args.get('hub.mode', None) == 'subscribe':
