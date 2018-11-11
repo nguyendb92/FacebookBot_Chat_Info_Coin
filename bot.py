@@ -23,21 +23,15 @@ app.config.update(VERIFY_TOKEN=os.getenv("VERIFY_TOKEN", None),
 
 @app.route('/', methods=['GET'])
 def webhook_verification():
-    if (request.args.get('hub.verify_token', '') == app.config['VERIFY_TOKEN']):
-        print("Verified")
-        return request.args.get('hub.challenge', ''), 200
-    elif (request.args.get('hub.verify_token', '') != app.config['VERIFY_TOKEN']):
-        print("Wrong token")
-        return "Error, wrong validation token"
-    # if request.args.get('hub.mode', None) == 'subscribe':
-    #     if request.args.get('hub.challenge', None):
-    #         if not request.args.get("hub.verify_token") == app.config['VERIFY_TOKEN']:
-    #             # VERIFY_TOKEN  is not matches
-    #             app.logger.warning('webhook verification faild: {}'.format(str(requests.args)))
-    #             return "Unauthorized: VERIFY TOKEN is not matching", 403
-    #         # webhook verification OK
-    #         app.logger.info('Webhook verification successful: {}'.format(str(request.args)))
-    #         return request.args['hub.challenge'], 200
+    if request.args.get('hub.mode', None) == 'subscribe':
+        if request.args.get('hub.challenge', None):
+            if not request.args.get("hub.verify_token") == app.config['VERIFY_TOKEN']:
+                # VERIFY_TOKEN  is not matches
+                app.logger.warning('webhook verification faild: {}'.format(str(requests.args)))
+                return "Unauthorized: VERIFY TOKEN is not matching", 403
+            # webhook verification OK
+            app.logger.info('Webhook verification successful: {}'.format(str(request.args)))
+            return request.args['hub.challenge'], 200
     else:
         # trong truong hop mot simple get
         return "Hello, I am a bot of Nguyên", 200
