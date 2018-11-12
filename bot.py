@@ -75,7 +75,7 @@ def reply(recipient_id, response_text):
     params = {
         "access_token": app.config["PAGE_ACCESS_TOKEN"]
     }
-    heards = {
+    headers = {
         "Content-Type": "application/json"
     }
     data = json.dumps(
